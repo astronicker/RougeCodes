@@ -3,16 +3,15 @@ import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
-import 'core/providers/navigation_provider.dart';
-import 'core/providers/session_provider.dart';
-import 'firebase_options.dart';
-import 'home/home.dart';
-import 'home/provider/batch_provider.dart';
+import 'package:rougecodes/providers/navigation_provider.dart';
+import 'package:rougecodes/providers/session_provider.dart';
+import 'package:rougecodes/views/authentication/login.dart';
+import 'package:rougecodes/views/home/home.dart';
+import 'core/firebase_options.dart';
+import 'providers/batch_provider.dart';
 import 'layout/main_layout.dart';
-import 'pages/authentication/login.dart';
-import 'pages/welcome.dart';
-import 'students/provider/student_provider.dart';
+import 'views/welcome.dart';
+import 'providers/student_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

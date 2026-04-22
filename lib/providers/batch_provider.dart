@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-
-import '../../core/models/batch_models.dart';
-import '../../services/batch_service.dart';
+import '../models/batch_models.dart';
+import '../services/batch_service.dart';
 
 class BatchProvider extends ChangeNotifier {
   BatchProvider() {

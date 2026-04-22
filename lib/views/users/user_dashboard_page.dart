@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../core/providers/session_provider.dart';
-import '../home/provider/batch_provider.dart';
-import '../students/provider/student_provider.dart';
+import '../../providers/batch_provider.dart';
+import '../../providers/session_provider.dart';
+import '../../providers/student_provider.dart';
 
 class UserDashboardPage extends StatelessWidget {
   const UserDashboardPage({super.key});
@@ -75,63 +74,12 @@ class UserDashboardPage extends StatelessWidget {
         return ListView(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
           children: [
-            Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [cs.primaryContainer, cs.secondaryContainer],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                borderRadius: BorderRadius.circular(28),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'My Dashboard',
-                    style: TextStyle(
-                      color: cs.onPrimaryContainer,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    'Your batches, resources, and attendance.',
-                    style: TextStyle(
-                      color: cs.onPrimaryContainer,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Everything you need is here.',
-                    style: TextStyle(
-                      color: cs.onPrimaryContainer.withValues(alpha: 0.86),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Wrap(
-                    spacing: 10,
-                    runSpacing: 10,
-                    children: [
-                      _MiniChip(
-                        icon: Icons.groups_rounded,
-                        text: '${enrolledBatches.length} batches',
-                      ),
-                      _MiniChip(
-                        icon: Icons.library_books_rounded,
-                        text: '$totalResources resources',
-                      ),
-                      _MiniChip(
-                        icon: Icons.insights_rounded,
-                        text: '${profile.attendanceRate}% attendance',
-                      ),
-                    ],
-                  ),
-                ],
+            Text(
+              'My dashboard',
+              style: TextStyle(
+                color: cs.primary,
+                fontSize: 16,
+                fontWeight: FontWeight.w800,
               ),
             ),
             const SizedBox(height: 16),
@@ -153,9 +101,9 @@ class UserDashboardPage extends StatelessWidget {
                   icon: Icons.query_stats_rounded,
                 ),
                 _StatCard(
-                  label: 'Resources',
-                  value: '$totalResources',
-                  icon: Icons.library_books_rounded,
+                  label: 'Batches',
+                  value: '${enrolledBatches.length}',
+                  icon: Icons.dashboard_rounded,
                 ),
               ],
             ),
@@ -163,8 +111,8 @@ class UserDashboardPage extends StatelessWidget {
             Text(
               'Enrolled batches',
               style: TextStyle(
-                color: cs.onSurface,
-                fontSize: 20,
+                color: cs.primary,
+                fontSize: 16,
                 fontWeight: FontWeight.w800,
               ),
             ),
@@ -345,8 +293,8 @@ class UserDashboardPage extends StatelessWidget {
             Text(
               'Attendance history',
               style: TextStyle(
-                color: cs.onSurface,
-                fontSize: 20,
+                color: cs.primary,
+                fontSize: 16,
                 fontWeight: FontWeight.w800,
               ),
             ),
@@ -441,7 +389,7 @@ class _StatCard extends StatelessWidget {
           Row(
             spacing: 8.0,
             children: [
-              Icon(icon, color: cs.primary),
+              Icon(icon, color: cs.tertiary),
               const SizedBox(height: 10),
               Text(
                 value,
@@ -475,36 +423,6 @@ class _StatGrid extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       childAspectRatio: 2,
       children: children,
-    );
-  }
-}
-
-class _MiniChip extends StatelessWidget {
-  const _MiniChip({required this.icon, required this.text});
-
-  final IconData icon;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(
-        color: cs.surface.withValues(alpha: 0.88),
-        borderRadius: BorderRadius.circular(999),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 16, color: cs.primary),
-          const SizedBox(width: 6),
-          Text(
-            text,
-            style: TextStyle(color: cs.onSurface, fontWeight: FontWeight.w600),
-          ),
-        ],
-      ),
     );
   }
 }

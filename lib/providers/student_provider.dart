@@ -1,11 +1,9 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
-import '../../core/models/app_user.dart';
-import '../../core/models/batch_models.dart';
-import '../../services/student_service.dart';
+import '../models/app_user.dart';
+import '../models/batch_models.dart';
+import '../services/student_service.dart';
 
 class StudentProvider extends ChangeNotifier {
   StudentProvider() {

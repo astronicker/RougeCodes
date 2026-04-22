@@ -1,11 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../core/models/app_user.dart';
-import '../core/models/batch_models.dart';
-import '../home/provider/batch_provider.dart';
-import 'provider/student_provider.dart';
+import '../../models/app_user.dart';
+import '../../models/batch_models.dart';
+import '../../providers/batch_provider.dart';
+import '../../providers/student_provider.dart';
 
 class StudentsPage extends StatelessWidget {
   const StudentsPage({super.key});
@@ -64,44 +63,12 @@ class StudentsPage extends StatelessWidget {
           body: ListView(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 96),
             children: [
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [cs.primaryContainer, cs.secondaryContainer],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(28),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Student Operations',
-                      style: TextStyle(
-                        color: cs.onPrimaryContainer,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      'Manage student accounts and attendance cleanly.',
-                      style: TextStyle(
-                        color: cs.onPrimaryContainer,
-                        fontSize: 22,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      'Expand a student card to see more batch and attendance details.',
-                      style: TextStyle(
-                        color: cs.onPrimaryContainer.withValues(alpha: 0.86),
-                      ),
-                    ),
-                  ],
+              Text(
+                'All stats',
+                style: TextStyle(
+                  color: cs.primary,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
               const SizedBox(height: 14),
@@ -133,8 +100,8 @@ class StudentsPage extends StatelessWidget {
               Text(
                 'All students',
                 style: TextStyle(
-                  color: cs.onSurface,
-                  fontSize: 20,
+                  color: cs.primary,
+                  fontSize: 16,
                   fontWeight: FontWeight.w800,
                 ),
               ),
@@ -210,14 +177,6 @@ class StudentsPage extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               _StatusChip(label: '${student.attendanceRate}%'),
-                              const SizedBox(width: 8),
-                              Text(
-                                'More',
-                                style: TextStyle(
-                                  color: cs.primary,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
                             ],
                           ),
                           children: [
@@ -371,14 +330,6 @@ class StudentsPage extends StatelessWidget {
                                   ),
                                 ),
                               ],
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              'Tap the header again to collapse.',
-                              style: TextStyle(
-                                color: cs.onSurfaceVariant,
-                                fontSize: 12,
-                              ),
                             ),
                           ],
                         ),
@@ -1129,7 +1080,7 @@ class _StatCard extends StatelessWidget {
           Row(
             spacing: 8.0,
             children: [
-              Icon(icon, color: cs.primary),
+              Icon(icon, color: cs.tertiary),
               Text(
                 value,
                 style: TextStyle(

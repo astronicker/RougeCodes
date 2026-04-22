@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../core/models/app_user.dart';
-import '../core/models/batch_models.dart';
-import '../core/providers/session_provider.dart';
-import '../students/provider/student_provider.dart';
-import 'provider/batch_provider.dart';
+import '../../models/app_user.dart';
+import '../../models/batch_models.dart';
+import '../../providers/batch_provider.dart';
+import '../../providers/session_provider.dart';
+import '../../providers/student_provider.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -103,46 +102,14 @@ class _AdminHome extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 96),
           children: [
-            Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [cs.primaryContainer, cs.secondaryContainer],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
+           Text(
+                'All stats',
+                style: TextStyle(
+                  color: cs.primary,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
                 ),
-                borderRadius: BorderRadius.circular(28),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Batch Control',
-                    style: TextStyle(
-                      color: cs.onPrimaryContainer,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Manage batches, enrollments, and learning resources.',
-                    style: TextStyle(
-                      color: cs.onPrimaryContainer,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Fast admin actions with cleaner enrollment management.',
-                    style: TextStyle(
-                      color: cs.onPrimaryContainer.withValues(alpha: 0.86),
-                    ),
-                  ),
-                ],
-              ),
-            ),
             const SizedBox(height: 14),
             _StatGrid(
               children: [
@@ -168,8 +135,8 @@ class _AdminHome extends StatelessWidget {
             Text(
               'All batches',
               style: TextStyle(
-                color: cs.onSurface,
-                fontSize: 20,
+                color: cs.primary,
+                fontSize: 16,
                 fontWeight: FontWeight.w800,
               ),
             ),
@@ -204,7 +171,7 @@ class _AdminHome extends StatelessWidget {
                         children: [
                           Container(
                             width: 10,
-                            height: 96,
+                            height: 140,
                             decoration: BoxDecoration(
                               color: _statusColor(cs, status),
                               borderRadius: BorderRadius.circular(99),
@@ -1074,7 +1041,7 @@ class _StatCard extends StatelessWidget {
           Row(
             spacing: 8.0,
             children: [
-              Icon(icon, color: cs.primary),
+              Icon(icon, color: cs.tertiary),
               Text(
                 value,
                 style: TextStyle(

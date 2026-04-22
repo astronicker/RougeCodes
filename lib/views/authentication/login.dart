@@ -84,7 +84,7 @@ class _LoginState extends State<Login> {
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       labelText: 'Email',
-                      hintText: 'admin@test.com',
+                      hintText: 'Email',
                       prefixIcon: const Icon(Icons.email),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(4),
@@ -114,7 +114,7 @@ class _LoginState extends State<Login> {
                     obscureText: true,
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      hintText: 'Ayush123',
+                      hintText: 'Password',
                       prefixIcon: const Icon(Icons.lock),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(4),

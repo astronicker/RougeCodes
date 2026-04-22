@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../core/providers/navigation_provider.dart';
-import '../core/providers/session_provider.dart';
-import '../home/home.dart';
-import '../pages/welcome.dart';
-import '../students/students.dart';
-import '../users/user_dashboard_page.dart';
+import '../providers/navigation_provider.dart';
+import '../providers/session_provider.dart';
+import '../views/home/home.dart';
+import '../views/students/students.dart';
+import '../views/users/user_dashboard_page.dart';
+import '../views/welcome.dart';
 
 class MainLayout extends StatelessWidget {
   const MainLayout({super.key});
@@ -82,25 +82,12 @@ class MainLayout extends StatelessWidget {
           appBar: AppBar(
             toolbarHeight: 76,
             backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  profile.isAdmin ? 'RougeCodes Admin' : 'RougeCodes',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-                Text(
-                  profile.name,
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
+            title: Text(
+              profile.isAdmin ? 'RougeCodes Admin' : 'RougeCodes',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.w900,
+              ),
             ),
             actions: [
               IconButton(

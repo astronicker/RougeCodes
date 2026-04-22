@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import '../core/models/app_user.dart';
-import '../core/models/batch_models.dart';
-import '../firebase_options.dart';
+import '../core/firebase_options.dart';
+import '../models/app_user.dart';
+import '../models/batch_models.dart';
 
 class StudentService {
   StudentService._();

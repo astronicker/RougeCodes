@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
-import '../core/models/batch_models.dart';
+import '../models/batch_models.dart';
 
 class BatchService {
   BatchService._();

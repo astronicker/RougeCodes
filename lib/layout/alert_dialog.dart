@@ -31,7 +31,7 @@ void showConfirmationDialog({
             style: FilledButton.styleFrom(backgroundColor: confirmColor),
             onPressed: () {
               onConfirm();
-              Navigator.of(dialogContext).pop(); // Close dialog
+              Navigator.of(dialogContext).pop();
             },
             child: Text(confirmText),
           ),
