@@ -36,12 +36,11 @@ flutter:
   uses-material-design: true
   assets:
        - assets/images/rougecodes.png
-#    - assets/images/logo2.png
-#    - assets/json/orders.json
 
 # App icon
-# flutter_icons:
-#  android: true
-#  ios: true
-#  image_path: "assets/icon/app_icon.png"
-#  adaptive_icon_background: "#FFFFFF"
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/appicon.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/appicon.png"
